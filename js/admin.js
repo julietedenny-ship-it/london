@@ -172,6 +172,12 @@ async function startAdmin() {
     } catch (error) {
       console.error("Échec de la connexion à l’administration.", error);
       showMessage("Connexion impossible. Vérifie tes identifiants et la configuration Supabase.", true);
+      showMessage(
+  signedIn
+    ? `Connexion établie, mais le contrôle d’accès ou le chargement des ressources a échoué : ${detail}`
+    : `Supabase a refusé la connexion : ${detail}`,
+  true
+   );
     } finally {
       submitButton.disabled = false;
     }
