@@ -16,19 +16,19 @@ for (const channel of channels) {
       }
 
       if (channelsLoaded) {
-        status.textContent = `${channel.label} is not configured yet. Please check back later.`;
+      if (status) status.textContent = `${channel.label} is not configured yet. Please check back later.`;
         document.querySelector("#contact").scrollIntoView({ behavior: "smooth" });
         return;
       }
 
       const pendingTab = window.open("about:blank", "_blank");
       if (!pendingTab) {
-        status.textContent = `Loading the ${channel.label} link. Please click the button again in a moment.`;
+       if (status) status.textContent = `Loading the ${channel.label} link. Please click the button again in a moment.`;
         return;
       }
 
       pendingTab.opener = null;
-      status.textContent = `Loading the ${channel.label} link…`;
+      if (status) status.textContent = `Loading the ${channel.label} link…`;
       await channelsPromise;
 
       if (channel.url) {
@@ -66,12 +66,12 @@ async function loadSupportChannels() {
       }
     }
 
-    status.textContent = configuredCount
+   if (status) status.textContent = configuredCount
       ? "Contact buttons are managed by the site administrator."
       : "The buttons are shown here; their links will work once configured by the site administrator.";
   } catch (error) {
     console.error("Impossible de charger les liens WhatsApp et Telegram.", error);
-    status.textContent = "The buttons are shown here, but their links are temporarily unavailable. Please use the official support resources below.";
+   if (status) status.textContent = "The buttons are shown here, but their links are temporarily unavailable. Please use the official support resources below.";
   } finally {
     channelsLoaded = true;
   }
