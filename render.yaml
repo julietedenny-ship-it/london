@@ -1,7 +1,8 @@
-staticSites:
-  - name: cannabis-education-guide
+services:
+  - type: static
+    name: cannabis-education-guide
     buildCommand: "echo Static HTML site - no build required"
-    publishPath: .
+    staticPublishPath: .
     headers:
       - path: /*
         name: X-Content-Type-Options
