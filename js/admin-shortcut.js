@@ -11,8 +11,8 @@ logo?.addEventListener("click", (event) => {
     clickCount = 0;
   }, 1500);
 
-  if (clickCount === 3) {
-    event.preventDefault();
-    window.location.assign("admin.html");
-  }
+ if (clickCount === 3) {
+  event.preventDefault();
+  window.location.assign(new URL("admin.html", window.location.href));
+}
 });
