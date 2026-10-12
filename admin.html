@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#173d30">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Administration des liens de contact</title>
+  <link rel="stylesheet" href="Style.CSS">
+</head>
+<body class="admin-page">
+  <main class="admin-main">
+    <a class="admin-back" href="index.html#contact">← Retour au site</a>
+    <section class="admin-card" aria-labelledby="adminTitle">
+      <p class="eyebrow">Espace privé</p>
+      <h1 id="adminTitle">Liens de contact</h1>
+      <p class="admin-intro">Configure ici les destinations des boutons WhatsApp et Telegram visibles sur le site public.</p>
+      <p id="adminStatus" class="admin-status" role="status" aria-live="polite">Connexion à Supabase…</p>
+
+      <div id="adminLogin" class="admin-panel" hidden>
+        <h2>Connexion administrateur</h2>
+        <form id="adminLoginForm">
+          <div>
+            <label for="adminEmail">Adresse e-mail</label>
+            <input id="adminEmail" name="email" type="email" autocomplete="username" required>
+          </div>
+          <div>
+            <label for="adminPassword">Mot de passe</label>
+            <input id="adminPassword" name="password" type="password" autocomplete="current-password" required>
+          </div>
+          <button class="btn btn--tg" type="submit">Se connecter</button>
+        </form>
+        <button id="showPasswordReset" class="admin-text-button" type="button">Mot de passe oublié ?</button>
+        <form id="adminPasswordResetRequest" hidden>
+          <p>Indique l’adresse e-mail de ton compte administrateur. Si le compte existe, Supabase enverra un lien de réinitialisation.</p>
+          <div>
+            <label for="resetEmail">Adresse e-mail</label>
+            <input id="resetEmail" name="email" type="email" autocomplete="email" required>
+          </div>
+          <button class="btn btn--tg" type="submit">Envoyer le lien de réinitialisation</button>
+          <button id="backToLogin" class="admin-text-button" type="button">Retour à la connexion</button>
+        </form>
+      </div>
+
+      <div id="adminPasswordRecovery" class="admin-panel" hidden>
+        <h2>Choisir un nouveau mot de passe</h2>
+        <p>Utilise une phrase de passe unique d’au moins 12 caractères.</p>
+        <form id="adminPasswordRecoveryForm">
+          <div>
+            <label for="newAdminPassword">Nouveau mot de passe</label>
+            <input id="newAdminPassword" name="password" type="password" autocomplete="new-password" minlength="12" required>
+          </div>
+          <div>
+            <label for="confirmAdminPassword">Confirmer le nouveau mot de passe</label>
+            <input id="confirmAdminPassword" name="passwordConfirmation" type="password" autocomplete="new-password" minlength="12" required>
+          </div>
+          <button class="btn btn--tg" type="submit">Enregistrer le nouveau mot de passe</button>
+        </form>
+      </div>
+
+      <div id="adminDashboard" class="admin-panel" hidden>
+        <div class="admin-panel__heading">
+          <div>
+            <h2>Canaux de contact</h2>
+            <p>Seuls les administrateurs peuvent modifier ces liens. Les destinations configurées sont affichées aux visiteurs quand ils utilisent les boutons du site.</p>
+          </div>
+          <button class="btn btn--secondary" data-admin-logout type="button">Se déconnecter</button>
+        </div>
+        <form id="adminResourcesForm">
+          <div>
+            <label for="whatsappUrl">Lien WhatsApp</label>
+            <input id="whatsappUrl" data-contact-id="whatsapp" type="url" inputmode="url" placeholder="https://wa.me/..." autocomplete="url">
+            <p class="admin-help">Domaine autorisé : wa.me ou whatsapp.com. Champ facultatif.</p>
+          </div>
+          <div>
+            <label for="telegramUrl">Lien Telegram</label>
+            <input id="telegramUrl" data-contact-id="telegram" type="url" inputmode="url" placeholder="https://t.me/..." autocomplete="url">
+            <p class="admin-help">Domaine autorisé : t.me ou telegram.me. Champ facultatif.</p>
+          </div>
+          <button class="btn btn--tg" type="submit">Enregistrer les liens</button>
+        </form>
+      </div>
+
+      <div id="adminDenied" class="admin-panel" hidden>
+        <h2>Accès non autorisé</h2>
+        <p>Ce compte n’est pas autorisé à modifier les liens de contact.</p>
+        <button class="btn btn--secondary" data-admin-logout type="button">Se déconnecter</button>
+      </div>
+
+      <p class="admin-security-note">Seuls les comptes autorisés dans Supabase peuvent modifier ces liens. Les destinations enregistrées sont publiques pour permettre aux visiteurs d’utiliser les boutons. Ne place jamais la clé service_role dans le site.</p>
+    </section>
+  </main>
+  <script type="module" src="js/admin.js"></script>
+</body>
+</html>
