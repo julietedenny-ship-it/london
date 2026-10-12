@@ -162,11 +162,11 @@ async function startAdmin() {
     showMessage("Connexion en cours…");
 
     try {
-      const formData = new FormData(loginForm);
-      const { data, error } = await supabase.auth.signInWithPassword({
-        email: String(formData.get("email")).trim(),
-        password: String(formData.get("password"))
-      });
+     const formData = new FormData(loginForm);
+    const { data, error } = await supabase.auth.signInWithPassword({
+    email: String(formData.get("email")).trim(),
+    password: String(formData.get("password"))
+   });
       if (error) throw error;
       await showAuthenticatedView(data.session);
     } catch (error) {
