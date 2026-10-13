@@ -2708,4 +2708,27 @@ body:not(.admin-page) .telegram-bubble svg {
     flex: 0 0 auto;
     gap: .45rem;
   }
+
+}
+
+/* Correction affichage WhatsApp et Telegram sur mobile */
+@media screen and (max-width: 768px) {
+  .whatsapp-bubble,
+  .telegram-bubble {
+    position: fixed !important;
+    right: 16px !important;
+    z-index: 999999 !important;
+    visibility: visible !important;
+    opacity: 1 !important;
+    display: inline-flex !important;
+    pointer-events: auto !important;
+  }
+
+  .whatsapp-bubble {
+    bottom: 20px !important;
+  }
+
+  .telegram-bubble {
+    bottom: 90px !important;
+  }
 }
