@@ -2732,3 +2732,59 @@ body:not(.admin-page) .telegram-bubble svg {
     bottom: 90px !important;
   }
 }
+
+
+/* Cacher les bulles lorsque le message de sécurité est ouvert */
+body.age-gate-open .whatsapp-bubble,
+body.age-gate-open .telegram-bubble {
+  display: none !important;
+}
+
+/* Garder les bulles visibles après validation */
+body:not(.age-gate-open) .whatsapp-bubble,
+body:not(.age-gate-open) .telegram-bubble {
+  display: inline-flex;
+}
+
+/* Forme et position des bulles WhatsApp et Telegram */
+.whatsapp-bubble,
+.telegram-bubble {
+  position: fixed !important;
+  right: 16px !important;
+  width: 60px !important;
+  height: 60px !important;
+  min-width: 60px !important;
+  min-height: 60px !important;
+  max-width: 60px !important;
+  max-height: 60px !important;
+  padding: 0 !important;
+  border-radius: 50% !important;
+  box-sizing: border-box !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  flex-shrink: 0 !important;
+  z-index: 999999 !important;
+}
+
+.whatsapp-bubble {
+  bottom: 20px !important;
+}
+
+.telegram-bubble {
+  bottom: 95px !important;
+}
+
+.whatsapp-bubble svg,
+.telegram-bubble svg {
+  width: 32px !important;
+  height: 32px !important;
+  max-width: 32px !important;
+  max-height: 32px !important;
+}
+
+/* Cacher les bulles pendant le message de sécurité */
+body.age-gate-open .whatsapp-bubble,
+body.age-gate-open .telegram-bubble {
+  display: none !important;
+}
