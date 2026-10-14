@@ -1635,8 +1635,8 @@ body.age-gate-open {
 .telegram-bubble {
   position: fixed;
   z-index: 15;
-  right: 6.25rem;
-  bottom: 1.25rem;
+  right: 16px;
+  bottom: 95px;
   display: inline-flex;
   min-height: 56px;
   align-items: center;
