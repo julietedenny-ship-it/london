@@ -1601,8 +1601,8 @@ body.age-gate-open {
 .whatsapp-bubble {
   position: fixed;
   z-index: 15;
-  right: 1.25rem;
-  bottom: 1.25rem;
+  right: 16px;
+  bottom: 16px;
   display: inline-flex;
   min-height: 56px;
   align-items: center;
