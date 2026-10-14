@@ -2788,3 +2788,41 @@ body.age-gate-open .whatsapp-bubble,
 body.age-gate-open .telegram-bubble {
   display: none !important;
 }
+
+
+/* Correction des bulles WhatsApp et Telegram sur mobile */ 
+@media screen and (max-width: 768px) { 
+.whatsapp-bubble,
+.telegram-bubble {
+    position: fixed !important; right: 12px !important;
+    width: 56px !important; height: 56px !important;
+    min-height: 56px !important;
+    padding: 0 !important; 
+    border-radius: 50% !important; 
+    display: flex !important;
+    align-items: center !important; 
+    justify-content: center !important;
+    z-index: 9999 !important;
+    box-sizing: border-box !important; 
+ }
+
+ .whatsapp-bubble {
+    bottom: 16px !important;
+ }
+
+.telegram-bubble {
+    bottom: 84px !important;
+ }
+}
+
+/* Cacher WhatsApp et Telegram pendant la vérification de l'âge */
+body.age-gate-open .whatsapp-bubble,
+body.age-gate-open .telegram-bubble {
+display: none !important;
+ }
+
+/* Afficher les bulles après la fermeture du message */
+body:not(.age-gate-open) .whatsapp-bubble,
+body:not(.age-gate-open) .telegram-bubble {
+display: flex !important;
+ }
